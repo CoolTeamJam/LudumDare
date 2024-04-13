@@ -48,4 +48,18 @@ public class InteractComponent : MonoBehaviour
             interact_pressed = false;
         }
     }
+
+    public bool GetInteractMessage(out string oInteractMessage)
+    {
+        if(currentInteractable == null)
+        {
+            oInteractMessage = string.Empty;
+            return false;
+        }
+        else
+        {
+            oInteractMessage = currentInteractable.GetInteractMessage();
+            return true;
+        }
+    }
 }
