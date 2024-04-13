@@ -1,0 +1,37 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Item : Intractable_Pickup
+{
+    [SerializeField] private string itemName;
+    [SerializeField] private int quantity;
+    [SerializeField] private Sprite snapShot;
+    [SerializeField] private Sprite background;
+
+    [SerializeField] private string itemDescription;
+
+    InventoryManager inventoryManager;
+    // Start is called before the first frame update
+    void Start()
+    {
+        inventoryManager = GameObject.Find("Canvas").GetComponent<InventoryManager>();
+    }
+
+    // Update is called once per frame
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if(collision.gameObject.tag == "Player")
+    //    {
+    //        inventoryManager.AddItem(itemName, quantity, snapShot);
+    //        //Destroy(gameObject);
+    //    }
+    //}
+
+    public override bool AddInventoryItem(GameObject iInstigator)
+    {
+        inventoryManager.AddItem(itemName, quantity, snapShot, itemDescription);
+        Debug.Log("Picked up item");
+        return true;
+    }
+}
