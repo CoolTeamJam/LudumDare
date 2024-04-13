@@ -1,6 +1,6 @@
 .MainMenuButton {
     opacity: 1;
-    background-color: rgb(52, 122, 197);
+    background-color: rgb(0, 133, 129);
     -unity-slice-left: 0;
     -unity-slice-top: 0;
     -unity-slice-right: 0;
@@ -18,7 +18,7 @@
     border-bottom-right-radius: 16px;
     border-bottom-left-radius: 16px;
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: -3px;
     width: 20%;
     height: 10%;
     font-size: 20px;
@@ -27,7 +27,7 @@
 
 .MainMenuButton:hover {
     opacity: 1;
-    background-color: rgb(197, 149, 52);
+    background-color: rgb(226, 156, 22);
     -unity-slice-left: 0;
     -unity-slice-top: 0;
     -unity-slice-right: 0;
@@ -56,7 +56,7 @@
 
 .MainMenuButton:active {
     opacity: 1;
-    background-color: rgb(207, 133, 36);
+    background-color: rgb(163, 89, 28);
     -unity-slice-left: 0;
     -unity-slice-top: 0;
     -unity-slice-right: 0;
