@@ -23,6 +23,8 @@
     height: 10%;
     font-size: 20px;
     -unity-font-style: bold;
+    -unity-font: url("project://database/Assets/Font/Death%20Note.ttf?fileID=12800000&guid=710e2a78f6ffc97458726e93c510ca4f&type=3#Death Note");
+    -unity-font-definition: initial;
 }
 
 .MainMenuButton:hover {
