@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class PlayerInput : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     public float PlayerSpeed = 2f;
 
@@ -48,7 +48,9 @@ public class PlayerInput : MonoBehaviour
             trans.Rotate(YawRotation);
 
             float PitchRotation = MouseY * AimSpeedY * dt;
-            PitchRotation = Mathf.Clamp(cameraObject.localRotation.x + PitchRotation, PitchMin, PitchMax) - cameraObject.localRotation.x;
+            float CameraCurrentPitch = cameraObject.localEulerAngles.x;
+            float ClampedCurrentPitch = (CameraCurrentPitch > 180) ? CameraCurrentPitch - 360f : CameraCurrentPitch;
+            PitchRotation = Mathf.Clamp(ClampedCurrentPitch + PitchRotation, PitchMin, PitchMax) - ClampedCurrentPitch;
 
             Vector3 PitchRotationVec = Vector3.zero;
             PitchRotationVec.x = PitchRotation;
