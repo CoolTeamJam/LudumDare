@@ -1,6 +1,12 @@
-.overlay {
+.pause {
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0);
+    transition-property: background-color;
+    transition-duration: 400ms;
+}
+
+.pause.pause-active{
+    background-color: rgba(0, 0, 0, 0.4)
 }
 
 .sections {
@@ -11,12 +17,26 @@
     height: 80px;
     background-color: rgb(0, 0, 0);
     border-color: rgb(0, 133, 129);
+    translate: 0 -100%;
+    transition-property: translate;
+    transition-duration: 400ms;
+}
+
+.pause.pause-active .header{
+    translate: 0 0;
 }
 
 .footer {
     height: 80px;
     background-color: rgb(0, 0, 0);
-    border-color: rgb(0, 133, 129);
+    border-color: rgb(0, 133, 129);translate: 0 -100%;
+    translate: 0 100;
+    transition-property: translate;
+    transition-duration: 400ms;
+}
+
+.pause.pause-active .footer{
+    translate: 0 0;
 }
 
 .header {
@@ -31,6 +51,18 @@
 
 .footer {
     border-top-width: 3px;
+}
+
+.menu-items{
+    opacity: 0;
+    translate: 40px 0;
+    transition-property: all;
+    transition-duration: 400ms;
+}
+
+.pause.pause-active .menu-items{
+    translate: 0 0;
+    opacity: 1; 
 }
 
 .PauseMenuButton {
