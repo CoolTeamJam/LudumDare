@@ -19,7 +19,7 @@ public class Intractable_Pickup : MonoBehaviour, Interactable
         }
     }
 
-    bool AddInventoryItem(GameObject iInstigator)
+    public virtual bool AddInventoryItem(GameObject iInstigator)
     {
         return true;
     }

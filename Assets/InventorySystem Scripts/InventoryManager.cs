@@ -18,20 +18,23 @@ public class InventoryManager : MonoBehaviour
     {
         if(Input.GetButtonDown("Inventory") && menuActivated)
         {
-            //Time.timeScale = 1; //resume the game
+            Time.timeScale = 1; //resume the game
+            Cursor.visible = false;
             InventoryMenu.SetActive(false);
             menuActivated = false;
 
         }
         else if(Input.GetButtonDown("Inventory") && !menuActivated)
         {
-            //Time.timeScale = 0; //stop the game (physics)
+            Time.timeScale = 0; //stop the game (physics)
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             InventoryMenu.SetActive(true);
             menuActivated = true;
         }
     }
 
-    public void AddItem(string itemName, int quantity, Sprite itemSprite)
+    public void AddItem(string itemName, int quantity, Sprite itemSprite, string itemDescription)
     {
         Debug.Log("Added Item: " + itemName);
 
@@ -39,7 +42,7 @@ public class InventoryManager : MonoBehaviour
         {
             if (itemSlots[i].isFull == false)
             {
-                itemSlots[i].AddItem(itemName, quantity, itemSprite);
+                itemSlots[i].AddItem(itemName, quantity, itemSprite, itemDescription);
                 return;
             }
         }
