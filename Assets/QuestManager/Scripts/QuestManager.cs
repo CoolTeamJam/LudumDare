@@ -9,116 +9,29 @@ using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-[Serializable]
-public struct TaskDescription
-{
-    public string mDescription;
-    public bool bIsCompleted;
-}
-
-[Serializable]
-public abstract class QuestTask : MonoBehaviour
-{
-    public bool bIsCompleted { get; protected set; } = false;
-
-    public abstract void EvaluateTask(QuestManager iQuestManager);
-
-    public abstract TaskDescription GetTaskString();
-
-    public virtual void SetupTask() { }
-}
-
-[Serializable]
-public abstract class QuestEvent : MonoBehaviour
-{
-    public abstract void TriggerEvent();
-}
-
-[Serializable]
-public class QuestStage
-{
-    public string QuestDescription = ""; 
-
-    [SerializeReference]
-    QuestTask[] Tasks;
-
-    [SerializeReference]
-    QuestEvent[] Events;
-
-    float GracePeriod = 2.0f;
-    float TimeStart = -1f;
-
-    public bool bIsCompleted { get; protected set; } = false;
-
-    public void TriggerEvents()
-    {
-        foreach (QuestEvent wEvent in Events) {
-            wEvent.TriggerEvent();
-        }
-    }
-
-    public void EvaluateTasks(QuestManager iQuestManager)
-    {
-        if (bIsCompleted) return;
-
-
-        int wCompletedTasks = 0;
-        foreach(QuestTask wTask in Tasks)
-        {
-            if(!wTask.bIsCompleted) wTask.EvaluateTask(iQuestManager);
-
-            if (wTask.bIsCompleted) wCompletedTasks++;
-        }
-
-        if(wCompletedTasks >= Tasks.Length)
-        {
-            if(TimeStart < 0)
-            {
-                TimeStart = Time.realtimeSinceStartup;
-            }
-            else if(Time.realtimeSinceStartup - TimeStart >= GracePeriod)
-            {
-                bIsCompleted = true;
-            }
-        }
-    }
-
-    public void SetupTasks()
-    {
-        foreach (QuestTask wTask in Tasks)
-        {
-            wTask.SetupTask();
-        }
-    }
-
-    public void GetQuestText(out string oStageString, out TaskDescription[] oTaskStrings)
-    {
-        oStageString = QuestDescription;
-
-        List<TaskDescription> wTaskStringList = new List<TaskDescription>();
-        foreach(QuestTask task in Tasks)
-        {
-            wTaskStringList.Add(task.GetTaskString());
-        }
-
-        oTaskStrings = wTaskStringList.ToArray();
-    }
-}
-
+[AddComponentMenu("Quest/Quest Manager")]
 public class QuestManager : MonoBehaviour
 {
     [SerializeField]
     public InventoryManager Inventory;
 
     [SerializeField]
-    public QuestStage[] Stages;
+    public List<QuestStage> Stages;
 
     int CurrentStageID = -1;
 
     private void Start()
     {
-        if(Stages.Length > 0)  
-        { 
+        foreach(Transform child in transform)
+        {
+            if(child.TryGetComponent(out QuestStage Stage))
+            {
+                Stages.Add(Stage);
+            }
+        }
+
+        if (Stages.Count > 0)
+        {
             CurrentStageID = 0;
         }
     }
@@ -127,7 +40,7 @@ public class QuestManager : MonoBehaviour
     {
         CurrentStageID++;
 
-        if (CurrentStageID >= Stages.Length)
+        if (CurrentStageID >= Stages.Count)
         {
             SceneManager.LoadScene("Credits");
         }
@@ -141,7 +54,7 @@ public class QuestManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (CurrentStageID < 0 || CurrentStageID >= Stages.Length) return;
+        if (CurrentStageID < 0 || CurrentStageID >= Stages.Count) return;
 
         QuestStage CurrentStage = Stages[CurrentStageID];
 
@@ -155,7 +68,7 @@ public class QuestManager : MonoBehaviour
 
     public QuestStage GetCurrentQuestStage() 
     {
-        if(CurrentStageID < 0 || CurrentStageID > Stages.Length) return null;
+        if(CurrentStageID < 0 || CurrentStageID > Stages.Count) return null;
         return Stages[CurrentStageID]; 
     }
 }
