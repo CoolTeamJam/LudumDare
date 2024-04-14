@@ -7,13 +7,10 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/Main Menu.unity
-    guid: 671db4e28e3a3fc47b295206deda119a
+    guid: 22fb4e81c310b17478cadba8f4381ca3
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
-    path: Assets/Scenes/Credits.unity
-    guid: e850d0ef20ccf8741acefbf117b02344
+    path: Assets/Scenes/Layout rescaled.unity
+    guid: 5a9dd9a38a13af7459bfdf0e38820650
   - enabled: 1
     path: Assets/Scenes/CreditsMenu.unity
     guid: e900c4a62fc5c8a4a90dfd081a8167f4
