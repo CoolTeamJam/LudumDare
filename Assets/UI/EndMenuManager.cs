@@ -67,7 +67,7 @@ public class EndMenuManager : MonoBehaviour
         }
     }
 
-    private void Open()
+    public void Open()
     {
         pauseElement.AddToClassList(activeClass);
         UnityEngine.Cursor.visible = true;
