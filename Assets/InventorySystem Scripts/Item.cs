@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[AddComponentMenu("Interactable/Item")]
 public class Item : Intractable_Pickup
 {
     [SerializeField] private string itemName;
@@ -11,11 +12,9 @@ public class Item : Intractable_Pickup
 
     [SerializeField] private string itemDescription;
 
-    InventoryManager inventoryManager;
     // Start is called before the first frame update
     void Start()
     {
-        inventoryManager = GameObject.Find("Canvas").GetComponent<InventoryManager>();
     }
 
     // Update is called once per frame
@@ -30,7 +29,11 @@ public class Item : Intractable_Pickup
 
     public override bool AddInventoryItem(GameObject iInstigator)
     {
-        inventoryManager.AddItem(itemName, quantity, snapShot, itemDescription);
+        InventoryManager Inventory = iInstigator.GetComponent<InventoryReference>().Inventory;
+
+        if (Inventory == null) return false;
+
+        Inventory.AddItem(itemName, quantity, snapShot, itemDescription);
         Debug.Log("Picked up item");
         return true;
     }

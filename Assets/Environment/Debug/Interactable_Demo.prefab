@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2509446667087962865}
   - component: {fileID: 2951584171634873079}
   - component: {fileID: 5476529872009223052}
+  - component: {fileID: 3128405189914783195}
   m_Layer: 0
   m_Name: Interactable_Demo
   m_TagString: Untagged
@@ -105,3 +106,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3128405189914783195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7669309377723545124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82c8242b8cf4a8c46b894223b8dffa2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: Coob
+  quantity: 1
+  snapShot: {fileID: 21300000, guid: 8e5a96faf3de8c84681c47a8e0cf13ed, type: 3}
+  background: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  itemDescription: A strange Cube...
