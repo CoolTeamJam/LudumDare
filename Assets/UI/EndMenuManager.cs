@@ -19,7 +19,8 @@ public class EndMenuManager : MonoBehaviour
 
     private void Start()
     {
-        
+        UnityEngine.Cursor.visible = true;
+        UnityEngine.Cursor.lockState = CursorLockMode.Confined;
     }
 
 
@@ -38,6 +39,8 @@ public class EndMenuManager : MonoBehaviour
         quitButton = rootElement.Q("quitButton");
         quitButton.RegisterCallback<ClickEvent>(OnClickQuitButton);
 
+     
+
     }
 
     private void OnClickQuitButton(ClickEvent evt)
@@ -55,6 +58,7 @@ public class EndMenuManager : MonoBehaviour
     private void OnClickResumeButton(ClickEvent evt)
     {
         Debug.Log("Restart");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     private void Update()
@@ -64,20 +68,20 @@ public class EndMenuManager : MonoBehaviour
 
     public void Open()
     {
-        if(pauseMenu != null)
+        Time.timeScale = 0;
+        if (pauseMenu != null)
         {
             pauseMenu.enabled = false;
         }
-        UnityEngine.Cursor.visible = true;
-        UnityEngine.Cursor.lockState = CursorLockMode.Confined;
+       
         pauseElement.AddToClassList(activeClass);
-        Time.timeScale = 0;
+        
     }
 
     private void Close()
     {
         pauseElement.RemoveFromClassList(activeClass);
-        UnityEngine.Cursor.visible = true;
+        UnityEngine.Cursor.visible = false;
         UnityEngine.Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1;
     }
