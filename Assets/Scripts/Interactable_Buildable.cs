@@ -14,7 +14,10 @@ public struct KeyObjectPair
 [AddComponentMenu("Interactable/Buildable")]
 public class Interactable_Buildable : Interactable
 {
+    public string Verb = "Construct";
     public string ConstructName;
+
+    bool bCanInteract = false;
 
     [SerializeField]
     public KeyObjectPair[] Components;
@@ -28,7 +31,7 @@ public class Interactable_Buildable : Interactable
 
     public override string GetInteractMessage()
     {
-        return "to Construct "+ConstructName;
+        return Verb + " " + ConstructName;
     }
 
     public override void Interact(GameObject iInstigator)
@@ -59,7 +62,7 @@ public class Interactable_Buildable : Interactable
             wKO.Value.SetActive(false);
         }
 
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
     }
 
     public bool CheckIsBuilt()
@@ -75,6 +78,6 @@ public class Interactable_Buildable : Interactable
 
     public override void ActivateInteractable()
     {
-        gameObject.SetActive(true);
+        bCanInteract = true;
     }
 }

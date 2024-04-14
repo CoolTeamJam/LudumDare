@@ -37,4 +37,9 @@ public class Item : Intractable_Pickup
         Debug.Log("Picked up item");
         return true;
     }
+
+    public override string GetInteractMessage()
+    {
+        return "pick up " + itemName;
+    }
 }

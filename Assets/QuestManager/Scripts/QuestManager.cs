@@ -37,7 +37,7 @@ public class QuestManager : MonoBehaviour
 
         if (Stages.Count > 0)
         {
-            CurrentStageID = 0;
+            StartNextStage();
         }
         
         endMenuManager.UiDocument = UiDocument;
