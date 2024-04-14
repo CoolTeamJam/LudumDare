@@ -8,7 +8,7 @@ public class EndMenuManager : MonoBehaviour
 {
     private readonly string activeClass = "pause-active";
 
-    [SerializeField] private UIDocument UiDocument;
+    [SerializeField] public UIDocument UiDocument;
     private VisualElement rootElement;
     private VisualElement pauseElement;
     private VisualElement resumeButton;
@@ -18,6 +18,13 @@ public class EndMenuManager : MonoBehaviour
 
     private void Start()
     {
+        
+    }
+
+
+    private void OnEnable()
+    {
+
         rootElement = UiDocument.rootVisualElement;
         pauseElement = rootElement.Q(className: "pause");
 
@@ -29,12 +36,6 @@ public class EndMenuManager : MonoBehaviour
 
         quitButton = rootElement.Q("quitButton");
         quitButton.RegisterCallback<ClickEvent>(OnClickQuitButton);
-    }
-
-
-    private void OnEnable()
-    {
-
 
     }
 
@@ -46,32 +47,25 @@ public class EndMenuManager : MonoBehaviour
 
     private void OnClickSettingsButton(ClickEvent evt)
     {
-        Debug.Log("Settings");
         SceneManager.LoadScene(0);
+
     }
 
     private void OnClickResumeButton(ClickEvent evt)
     {
-        Close();
+        Debug.Log("Restart");
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Open();
-        }
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Close();
-        }
+
     }
 
     public void Open()
     {
-        pauseElement.AddToClassList(activeClass);
         UnityEngine.Cursor.visible = true;
         UnityEngine.Cursor.lockState = CursorLockMode.Confined;
+        pauseElement.AddToClassList(activeClass);
         Time.timeScale = 0;
     }
 

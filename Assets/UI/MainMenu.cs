@@ -29,7 +29,7 @@ public class MainMenu : MonoBehaviour
 
     private void OnClickStartButton(ClickEvent evt)
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(1);
     }
 
     private void OnClickSettingsButton(ClickEvent evt)

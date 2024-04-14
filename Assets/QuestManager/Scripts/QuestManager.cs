@@ -6,9 +6,7 @@ using System.Runtime.CompilerServices;
 using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
-
-
+using UnityEngine.UIElements;
 
 [Serializable]
 public struct TaskDescription
@@ -90,6 +88,7 @@ public class QuestManager : MonoBehaviour
 {
 
     [SerializeField] private EndMenuManager endMenuManager;
+    [SerializeField] private UIDocument UiDocument;
 
     [SerializeField]
     public InventoryManager Inventory;
@@ -105,6 +104,7 @@ public class QuestManager : MonoBehaviour
         { 
             CurrentStageID = 0;
         }
+        endMenuManager.UiDocument = UiDocument;
     }
 
     // Update is called once per frame
@@ -123,6 +123,7 @@ public class QuestManager : MonoBehaviour
             
             if(CurrentStageID >= Stages.Length)
             {
+                Debug.Log("EndMenuManager");
                 endMenuManager.Open();
                 //SceneManager.LoadScene("Credits");
             }

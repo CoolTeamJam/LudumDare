@@ -1302,6 +1302,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1410475379}
     - target: {fileID: 2690955414030062149, guid: 8f090825930da0d438ef085595f1e37d, type: 3}
+      propertyPath: UiDocument
+      value: 
+      objectReference: {fileID: 922168585}
+    - target: {fileID: 2690955414030062149, guid: 8f090825930da0d438ef085595f1e37d, type: 3}
       propertyPath: endMenuManager
       value: 
       objectReference: {fileID: 922168584}
