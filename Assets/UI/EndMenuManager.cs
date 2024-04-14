@@ -64,7 +64,10 @@ public class EndMenuManager : MonoBehaviour
 
     public void Open()
     {
-        pauseMenu.enabled = false;
+        if(pauseMenu != null)
+        {
+            pauseMenu.enabled = false;
+        }
         UnityEngine.Cursor.visible = true;
         UnityEngine.Cursor.lockState = CursorLockMode.Confined;
         pauseElement.AddToClassList(activeClass);
