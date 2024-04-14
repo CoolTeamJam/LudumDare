@@ -1,20 +1,20 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
-public class PauseManager : MonoBehaviour
+public class EndMenuManager : MonoBehaviour
 {
     private readonly string activeClass = "pause-active";
-   
+
     [SerializeField] private UIDocument UiDocument;
     private VisualElement rootElement;
     private VisualElement pauseElement;
     private VisualElement resumeButton;
     private VisualElement settingsButton;
     private VisualElement quitButton;
-   
+
 
     private void Start()
     {
@@ -34,7 +34,7 @@ public class PauseManager : MonoBehaviour
 
     private void OnEnable()
     {
-        
+
 
     }
 
@@ -47,6 +47,7 @@ public class PauseManager : MonoBehaviour
     private void OnClickSettingsButton(ClickEvent evt)
     {
         Debug.Log("Settings");
+        SceneManager.LoadScene(0);
     }
 
     private void OnClickResumeButton(ClickEvent evt)
@@ -56,7 +57,7 @@ public class PauseManager : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             Open();
         }
@@ -81,6 +82,5 @@ public class PauseManager : MonoBehaviour
         UnityEngine.Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1;
     }
-
 
 }
