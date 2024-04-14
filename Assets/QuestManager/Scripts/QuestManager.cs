@@ -39,6 +39,7 @@ public class QuestManager : MonoBehaviour
         {
             CurrentStageID = 0;
         }
+        
         endMenuManager.UiDocument = UiDocument;
     }
 
