@@ -39,6 +39,7 @@ public class MainMenu : MonoBehaviour
 
     private void OnClickCreditsButton(ClickEvent evt)
     {
+        Debug.Log("Credits");
         SceneManager.LoadScene("CreditsMenu");
     }
 
