@@ -234,6 +234,7 @@ MonoBehaviour:
   itemDescription: 
   quantityText: {fileID: 983086366668964}
   itemImage: {fileID: 3625960633801090213}
+  defaultImage: {fileID: 21300000, guid: 8e5a96faf3de8c84681c47a8e0cf13ed, type: 3}
   selectedShader: {fileID: 6227851109098473625}
   itemSelected: 0
   itemDescriptionImage: {fileID: 0}

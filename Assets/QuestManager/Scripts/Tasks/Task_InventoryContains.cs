@@ -11,7 +11,10 @@ public class Task_InventoryContains : QuestTask
 
     public override void EvaluateTask(QuestManager iQuestManager)
     {
-
+        if (iQuestManager.Inventory != null && iQuestManager.Inventory.HasItem(ItemName, out int Index))
+        {
+            bIsCompleted = true;
+        }
     }
 
     public override TaskDescription GetTaskString()

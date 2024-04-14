@@ -2,14 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Intractable_Pickup : MonoBehaviour, Interactable
+[AddComponentMenu("Interactable/Pickup")]
+public class Intractable_Pickup : Interactable
 { 
-    public string GetInteractMessage()
+    public bool bCanInteract { get; protected set; }
+
+    public override string GetInteractMessage()
     {
         return "pick up Item";
     }
 
-    public void Interact(GameObject iInstigator)
+    public override void Interact(GameObject iInstigator)
     {
         if (iInstigator == null)
         {
@@ -27,5 +30,15 @@ public class Intractable_Pickup : MonoBehaviour, Interactable
     public virtual bool AddInventoryItem(GameObject iInstigator)
     {
         return true;
+    }
+
+    public override bool CanInteract()
+    {
+        return bCanInteract;
+    }
+
+    public override void ActivateInteractable()
+    {
+        bCanInteract = true;
     }
 }
