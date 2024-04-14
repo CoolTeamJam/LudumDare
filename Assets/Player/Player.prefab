@@ -240,7 +240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Viewpoint: {fileID: 6744812377157431847}
-  MaxInteractDistance: 2
+  MaxInteractDistance: 4
 --- !u!114 &6035335901411475570
 MonoBehaviour:
   m_ObjectHideFlags: 0
