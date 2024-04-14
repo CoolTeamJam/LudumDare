@@ -1,0 +1,87 @@
+.PauseMenuButton {
+    opacity: 1;
+    background-color: rgb(0, 133, 129);
+    -unity-slice-left: 0;
+    -unity-slice-top: 0;
+    -unity-slice-right: 0;
+    -unity-slice-bottom: 0;
+    border-left-color: rgb(255, 250, 250);
+    border-right-color: rgb(255, 250, 250);
+    border-top-color: rgb(255, 250, 250);
+    border-bottom-color: rgb(255, 250, 250);
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+    border-bottom-left-radius: 16px;
+    margin-top: 20px;
+    margin-bottom: -3px;
+    width: 20%;
+    height: 20%;
+    font-size: 20px;
+    -unity-font-style: bold;
+    -unity-font: url("project://database/Assets/Font/Death%20Note.ttf?fileID=12800000&guid=710e2a78f6ffc97458726e93c510ca4f&type=3#Death Note");
+    -unity-font-definition: initial;
+    min-height: 45px;
+}
+
+.PauseMenuButton:hover {
+    opacity: 1;
+    background-color: rgb(226, 156, 22);
+    -unity-slice-left: 0;
+    -unity-slice-top: 0;
+    -unity-slice-right: 0;
+    -unity-slice-bottom: 0;
+    border-left-color: rgb(255, 250, 250);
+    border-right-color: rgb(255, 250, 250);
+    border-top-color: rgb(255, 250, 250);
+    border-bottom-color: rgb(255, 250, 250);
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+    border-bottom-left-radius: 16px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 25%;
+    height: 10%;
+    font-size: 20px;
+    -unity-font-style: bold;
+    transition-timing-function: ease-out;
+    transition-duration: 0.2s;
+}
+
+.PauseMenuButton:active {
+    opacity: 1;
+    background-color: rgb(163, 89, 28);
+    -unity-slice-left: 0;
+    -unity-slice-top: 0;
+    -unity-slice-right: 0;
+    -unity-slice-bottom: 0;
+    border-left-color: rgb(255, 250, 250);
+    border-right-color: rgb(255, 250, 250);
+    border-top-color: rgb(255, 250, 250);
+    border-bottom-color: rgb(255, 250, 250);
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+    border-bottom-left-radius: 16px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 20%;
+    height: 10%;
+    font-size: 20px;
+    -unity-font-style: bold;
+    transition-timing-function: ease-out;
+    transition-duration: 0.2s;
+}
