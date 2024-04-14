@@ -2,9 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 [Serializable]
 public struct TaskDescription
@@ -31,6 +33,7 @@ public interface QuestEvent
 [Serializable]
 public class QuestStage
 {
+
     public string QuestDescription = ""; 
 
     [SerializeReference]
@@ -83,6 +86,10 @@ public class QuestStage
 
 public class QuestManager : MonoBehaviour
 {
+
+    [SerializeField] private EndMenuManager endMenuManager;
+    [SerializeField] private UIDocument UiDocument;
+
     [SerializeField]
     public InventoryManager Inventory;
 
@@ -97,6 +104,8 @@ public class QuestManager : MonoBehaviour
         { 
             CurrentStageID = 0;
         }
+        endMenuManager.UiDocument = UiDocument;
+        endMenuManager.Open();
     }
 
     // Update is called once per frame
@@ -115,7 +124,9 @@ public class QuestManager : MonoBehaviour
             
             if(CurrentStageID >= Stages.Length)
             {
-                SceneManager.LoadScene("Credits");
+                Debug.Log("EndMenuManager");
+                endMenuManager.Open();
+                //SceneManager.LoadScene("Credits");
             }
         }
     }

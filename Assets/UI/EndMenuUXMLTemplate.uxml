@@ -1,0 +1,18 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/PauseMenuStyle.uss?fileID=7433441132597879392&amp;guid=d6509788a01e82b4a925b76b13e70c84&amp;type=3#PauseMenuStyle" />
+    <ui:VisualElement name="VisualElement" class="pause">
+        <ui:VisualElement class="sections">
+            <ui:VisualElement class="header" style="align-items: auto;">
+                <ui:Label tabindex="-1" text="Pause Menu" parse-escape-sequences="true" display-tooltip-when-elided="true" style="color: rgb(250, 250, 250); font-size: 36px; -unity-font-definition: initial; -unity-font: url(&quot;project://database/Assets/TextMesh%20Pro/Fonts/Death%20Note.ttf?fileID=12800000&amp;guid=e709c07ffeb67ee4b840cce4b080d58d&amp;type=3#Death Note&quot;); align-items: stretch; justify-content: flex-start; align-self: flex-start; margin-top: 20px;" />
+            </ui:VisualElement>
+            <ui:VisualElement class="body">
+                <ui:VisualElement name="menu-items" class="menu-items" style="align-items: center; min-height: auto;">
+                    <ui:Button text="Restart" parse-escape-sequences="true" display-tooltip-when-elided="true" name="resumeButton" class="PauseMenuButton" style="text-overflow: clip; margin-top: 4px;" />
+                    <ui:Button text="Main menu" parse-escape-sequences="true" display-tooltip-when-elided="true" name="settingsButton" class="PauseMenuButton" style="text-overflow: clip;" />
+                    <ui:Button text="Quit" parse-escape-sequences="true" display-tooltip-when-elided="true" name="quitButton" class="PauseMenuButton" style="text-overflow: clip;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement class="footer" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

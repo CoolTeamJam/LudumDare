@@ -1,29 +1,31 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
-public class PauseManager : MonoBehaviour
+public class EndMenuManager : MonoBehaviour
 {
     private readonly string activeClass = "pause-active";
-   
-    [SerializeField] private UIDocument UiDocument;
+
+    [SerializeField] public UIDocument UiDocument;
+    [SerializeField] public UIDocument pauseMenu;
     private VisualElement rootElement;
     private VisualElement pauseElement;
     private VisualElement resumeButton;
     private VisualElement settingsButton;
     private VisualElement quitButton;
-   
+
 
     private void Start()
     {
-       
+        
     }
 
 
     private void OnEnable()
     {
+
         rootElement = UiDocument.rootVisualElement;
         pauseElement = rootElement.Q(className: "pause");
 
@@ -35,6 +37,7 @@ public class PauseManager : MonoBehaviour
 
         quitButton = rootElement.Q("quitButton");
         quitButton.RegisterCallback<ClickEvent>(OnClickQuitButton);
+
     }
 
     private void OnClickQuitButton(ClickEvent evt)
@@ -45,31 +48,26 @@ public class PauseManager : MonoBehaviour
 
     private void OnClickSettingsButton(ClickEvent evt)
     {
-        Debug.Log("Settings");
+        SceneManager.LoadScene(0);
+
     }
 
     private void OnClickResumeButton(ClickEvent evt)
     {
-        Close();
+        Debug.Log("Restart");
     }
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            Open();
-        }
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Close();
-        }
+
     }
 
-    private void Open()
+    public void Open()
     {
-        pauseElement.AddToClassList(activeClass);
+        pauseMenu.enabled = false;
         UnityEngine.Cursor.visible = true;
         UnityEngine.Cursor.lockState = CursorLockMode.Confined;
+        pauseElement.AddToClassList(activeClass);
         Time.timeScale = 0;
     }
 
@@ -80,6 +78,5 @@ public class PauseManager : MonoBehaviour
         UnityEngine.Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1;
     }
-
 
 }
