@@ -38,7 +38,7 @@ public class InteractComponent : MonoBehaviour
         {
             interact_pressed = true;
 
-            if (currentInteractable != null)
+            if (currentInteractable != null && currentInteractable.CanInteract())
             {
                 currentInteractable.Interact(gameObject);
             }
@@ -46,6 +46,20 @@ public class InteractComponent : MonoBehaviour
         else if(Input.GetAxis("Interact") <= 0f && interact_pressed)
         {
             interact_pressed = false;
+        }
+    }
+
+    public bool GetInteractMessage(out string oInteractMessage)
+    {
+        if(currentInteractable == null || !currentInteractable.CanInteract())
+        {
+            oInteractMessage = string.Empty;
+            return false;
+        }
+        else
+        {
+            oInteractMessage = currentInteractable.GetInteractMessage();
+            return true;
         }
     }
 }

@@ -234,11 +234,12 @@ MonoBehaviour:
   itemDescription: 
   quantityText: {fileID: 983086366668964}
   itemImage: {fileID: 3625960633801090213}
+  defaultImage: {fileID: 21300000, guid: 8e5a96faf3de8c84681c47a8e0cf13ed, type: 3}
   selectedShader: {fileID: 6227851109098473625}
   itemSelected: 0
-  ItemImage: {fileID: 0}
+  itemDescriptionImage: {fileID: 0}
   itemDescriptionNameText: {fileID: 0}
-  ItemDescriptionText: {fileID: 0}
+  itemDescriptionText: {fileID: 0}
 --- !u!223 &6483311837104271171
 Canvas:
   m_ObjectHideFlags: 0
@@ -345,7 +346,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 8e5a96faf3de8c84681c47a8e0cf13ed, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
