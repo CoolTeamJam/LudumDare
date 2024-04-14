@@ -2,6 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.Threading;
+using System.Timers;
 using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -21,11 +24,14 @@ public abstract class QuestTask : MonoBehaviour
     public abstract void EvaluateTask(QuestManager iQuestManager);
 
     public abstract TaskDescription GetTaskString();
+
+    public virtual void SetupTask() { }
 }
 
-public interface QuestEvent
+[Serializable]
+public abstract class QuestEvent : MonoBehaviour
 {
-    void TriggerEvent();
+    public abstract void TriggerEvent();
 }
 
 [Serializable]
@@ -38,6 +44,9 @@ public class QuestStage
 
     [SerializeReference]
     QuestEvent[] Events;
+
+    float GracePeriod = 2.0f;
+    float TimeStart = -1f;
 
     public bool bIsCompleted { get; protected set; } = false;
 
@@ -63,7 +72,22 @@ public class QuestStage
 
         if(wCompletedTasks >= Tasks.Length)
         {
-            bIsCompleted = true;
+            if(TimeStart < 0)
+            {
+                TimeStart = Time.realtimeSinceStartup;
+            }
+            else if(Time.realtimeSinceStartup - TimeStart >= GracePeriod)
+            {
+                bIsCompleted = true;
+            }
+        }
+    }
+
+    public void SetupTasks()
+    {
+        foreach (QuestTask wTask in Tasks)
+        {
+            wTask.SetupTask();
         }
     }
 
@@ -99,6 +123,21 @@ public class QuestManager : MonoBehaviour
         }
     }
 
+    void StartNextStage()
+    {
+        CurrentStageID++;
+
+        if (CurrentStageID >= Stages.Length)
+        {
+            SceneManager.LoadScene("Credits");
+        }
+        else
+        {
+            Stages[CurrentStageID].SetupTasks();
+            Stages[CurrentStageID].TriggerEvents();
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -110,13 +149,7 @@ public class QuestManager : MonoBehaviour
 
         if(CurrentStage.bIsCompleted)
         {
-            CurrentStage.TriggerEvents();
-            CurrentStageID++;
-            
-            if(CurrentStageID >= Stages.Length)
-            {
-                SceneManager.LoadScene("Credits");
-            }
+            StartNextStage();
         }
     }
 

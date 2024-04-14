@@ -5,12 +5,12 @@ using UnityEngine;
 public class InventoryManager : MonoBehaviour
 {
     public GameObject InventoryMenu;
-    private bool menuActivated;
+    private bool menuActivated = false;
     public itemSlot[] itemSlots;
     // Start is called before the first frame update
     void Start()
     {
-        
+        InventoryMenu.SetActive(menuActivated);
     }
 
     // Update is called once per frame
@@ -55,5 +55,61 @@ public class InventoryManager : MonoBehaviour
             itemSlots[i].selectedShader.SetActive(false);
             itemSlots[i].itemSelected = false;
         }
+    }
+
+    public bool HasItem(string iName, out int oItemIndex)
+    {
+        for(int c = 0; c < itemSlots.Length; c++)
+        {
+            if (itemSlots[c].isFull && itemSlots[c].itemName.CompareTo(iName) == 0)
+            {
+                oItemIndex = c;
+                return true;
+            }
+        }
+
+        oItemIndex = -1;
+        return false;
+    }
+
+    public bool RemoveItem(int iItemID)
+    {
+        if (iItemID < 0 || iItemID >= itemSlots.Length) return false;
+
+        for(int c = iItemID; c < itemSlots.Length; c++)
+        {
+            if (!itemSlots[c].isFull) break;
+
+            int nextId = c + 1;
+
+            if (nextId < itemSlots.Length)
+            {
+                itemSlots[c].CopySlot(itemSlots[nextId]);
+            }               
+            else
+            {
+                itemSlots[c].ClearSlot();
+            }
+        }
+
+        return true;
+    }
+
+    public bool RemoveItem(string iName)
+    {
+        for(int c = 0; c< itemSlots.Length;c++)
+        {
+            if (!itemSlots[c].isFull)
+            {
+                break;
+            }
+
+            if (itemSlots[c].itemName.CompareTo(iName) == 0)
+            {
+                return RemoveItem(c);
+            }
+        }
+
+        return false;
     }
 }
