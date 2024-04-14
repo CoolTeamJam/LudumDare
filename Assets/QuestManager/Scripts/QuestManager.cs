@@ -105,6 +105,7 @@ public class QuestManager : MonoBehaviour
             CurrentStageID = 0;
         }
         endMenuManager.UiDocument = UiDocument;
+        endMenuManager.Open();
     }
 
     // Update is called once per frame

@@ -9,6 +9,7 @@ public class EndMenuManager : MonoBehaviour
     private readonly string activeClass = "pause-active";
 
     [SerializeField] public UIDocument UiDocument;
+    [SerializeField] public UIDocument pauseMenu;
     private VisualElement rootElement;
     private VisualElement pauseElement;
     private VisualElement resumeButton;
@@ -63,6 +64,7 @@ public class EndMenuManager : MonoBehaviour
 
     public void Open()
     {
+        pauseMenu.enabled = false;
         UnityEngine.Cursor.visible = true;
         UnityEngine.Cursor.lockState = CursorLockMode.Confined;
         pauseElement.AddToClassList(activeClass);

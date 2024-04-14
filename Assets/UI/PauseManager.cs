@@ -18,6 +18,12 @@ public class PauseManager : MonoBehaviour
 
     private void Start()
     {
+       
+    }
+
+
+    private void OnEnable()
+    {
         rootElement = UiDocument.rootVisualElement;
         pauseElement = rootElement.Q(className: "pause");
 
@@ -29,13 +35,6 @@ public class PauseManager : MonoBehaviour
 
         quitButton = rootElement.Q("quitButton");
         quitButton.RegisterCallback<ClickEvent>(OnClickQuitButton);
-    }
-
-
-    private void OnEnable()
-    {
-        
-
     }
 
     private void OnClickQuitButton(ClickEvent evt)

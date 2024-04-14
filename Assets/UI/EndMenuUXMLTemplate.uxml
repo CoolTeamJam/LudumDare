@@ -8,7 +8,7 @@
             <ui:VisualElement class="body">
                 <ui:VisualElement name="menu-items" class="menu-items" style="align-items: center; min-height: auto;">
                     <ui:Button text="Restart" parse-escape-sequences="true" display-tooltip-when-elided="true" name="resumeButton" class="PauseMenuButton" style="text-overflow: clip; margin-top: 4px;" />
-                    <ui:Button text="Main Menu" parse-escape-sequences="true" display-tooltip-when-elided="true" name="settingsButton" class="PauseMenuButton" style="text-overflow: clip;" />
+                    <ui:Button text="Main menu" parse-escape-sequences="true" display-tooltip-when-elided="true" name="settingsButton" class="PauseMenuButton" style="text-overflow: clip;" />
                     <ui:Button text="Quit" parse-escape-sequences="true" display-tooltip-when-elided="true" name="quitButton" class="PauseMenuButton" style="text-overflow: clip;" />
                 </ui:VisualElement>
             </ui:VisualElement>
