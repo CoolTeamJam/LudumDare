@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[AddComponentMenu("Quest/Task/Construct")]
 public class Task_Construct : QuestTask
 {
     public string Verb = "Build";

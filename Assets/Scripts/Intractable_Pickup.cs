@@ -6,6 +6,12 @@ using UnityEngine;
 public class Intractable_Pickup : Interactable
 { 
     public bool bCanInteract { get; protected set; }
+    [SerializeField] bool bStartActive = false;
+
+    private void Start()
+    {
+        bCanInteract = bStartActive;
+    }
 
     public override string GetInteractMessage()
     {

@@ -37,7 +37,7 @@ public class QuestManager : MonoBehaviour
 
         if (Stages.Count > 0)
         {
-            CurrentStageID = 0;
+            StartNextStage();
         }
         
         endMenuManager.UiDocument = UiDocument;
@@ -49,7 +49,8 @@ public class QuestManager : MonoBehaviour
 
         if (CurrentStageID >= Stages.Count)
         {
-            SceneManager.LoadScene("Credits");
+            //SceneManager.LoadScene("Credits");
+            endMenuManager.Open();
         }
         else
         {
