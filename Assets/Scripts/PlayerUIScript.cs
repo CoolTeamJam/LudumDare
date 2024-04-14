@@ -32,7 +32,7 @@ public class PlayerUIScript : MonoBehaviour
             mInteractComp = GameObject.Find("Player").GetComponent<InteractComponent>();
         }
 
-        InteractText.renderMode = TMPro.TextRenderFlags.Render;
+        InteractText.gameObject.SetActive(false);
     }
 
     private void Update()

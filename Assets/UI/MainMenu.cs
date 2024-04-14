@@ -29,7 +29,7 @@ public class MainMenu : MonoBehaviour
 
     private void OnClickStartButton(ClickEvent evt)
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(1);
     }
 
     private void OnClickSettingsButton(ClickEvent evt)
@@ -40,6 +40,7 @@ public class MainMenu : MonoBehaviour
     private void OnClickCreditsButton(ClickEvent evt)
     {
         Debug.Log("Credits");
+        SceneManager.LoadScene("CreditsMenu");
     }
 
     private void OnClickExitButton(ClickEvent evt)

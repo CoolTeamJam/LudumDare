@@ -22,7 +22,7 @@ public class Intractable_Pickup : Interactable
         {
             if(AddInventoryItem(iInstigator))
             {
-                this.gameObject.SetActive(false);
+                   this.gameObject.SetActive(false);
             }
         }
     }
